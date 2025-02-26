@@ -32,4 +32,23 @@ public class ClazzCalculator {
         }
         System.out.println();
     }
+
+    public int getCalculateResult(String operator, int firstValue, int secondValue) {
+        int result = 0;
+        switch (operator) {
+            case "+":
+                result = firstValue + secondValue;
+                break;
+            case "-":
+                result = firstValue - secondValue;
+                break;
+            case "*":
+                result = firstValue * secondValue;
+                break;
+            case "/":
+                result = firstValue / secondValue;
+                break;
+        }
+        return result;
+    }
 }

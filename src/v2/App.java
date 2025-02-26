@@ -31,8 +31,7 @@ public class App {
             int secondValue = validSecondValue(operator, scanner);    // 두 번째 값 검증
 
             scanner.nextLine();
-            int result = getCalculateResult(operator, firstValue, secondValue);
-
+            int result = calculator.getCalculateResult(operator, firstValue, secondValue);
             calculator.add(result); // 계산 결과를 저장
 
             resultPrinter(operator, result, firstValue, secondValue);   // 계산 결과를 출력
@@ -85,24 +84,6 @@ public class App {
         return secondValue;
     }
 
-    private static int getCalculateResult(String operator, int firstValue, int secondValue) {
-        int result = 0;
-        switch (operator) {
-            case "+":
-                result = firstValue + secondValue;
-                break;
-            case "-":
-                result = firstValue - secondValue;
-                break;
-            case "*":
-                result = firstValue * secondValue;
-                break;
-            case "/":
-                result = firstValue / secondValue;
-                break;
-        }
-        return result;
-    }
 
     private static void resultPrinter(String operator, int result, int firstValue, int secondValue) {
         System.out.println("***************** 계산 결과 출력 *****************");

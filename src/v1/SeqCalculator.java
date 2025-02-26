@@ -5,9 +5,8 @@ import java.util.Scanner;
 
 public class SeqCalculator {
 
-    static Scanner scanner = new Scanner(System.in);
-
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
         while (true) {
             System.out.println("==== 계산기 시작 ====");

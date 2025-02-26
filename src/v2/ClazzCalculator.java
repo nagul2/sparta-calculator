@@ -7,7 +7,6 @@ public class ClazzCalculator {
 
     private List<Integer> resultHistoryList = new ArrayList<>();
 
-
     public void add(int result) {
         resultHistoryList.add(result);
     }

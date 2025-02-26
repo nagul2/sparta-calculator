@@ -1,7 +1,6 @@
 package v2;
 
 import java.util.InputMismatchException;
-import java.util.List;
 import java.util.Scanner;
 
 public class App {

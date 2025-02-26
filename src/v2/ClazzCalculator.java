@@ -19,4 +19,17 @@ public class ClazzCalculator {
     public int getSize() {
         return resultHistoryList.size();
     }
+
+    public void historyPrinter() {
+        if (getSize() == 0) {
+            System.out.println("계산 결과 이력이 없습니다.");
+        }
+
+        System.out.println("----- 전체 계산 이력 조회 -----");
+        System.out.println("계산 결과는 최대 10개 까지만 조회 됩니다.");
+        for (int i = 0; i < getSize() ; i++) {
+            System.out.println(i + 1 + "번째 계산 결과: " + resultHistoryList.get(i));
+        }
+        System.out.println();
+    }
 }

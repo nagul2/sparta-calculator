@@ -61,27 +61,23 @@ public class SeqCalculator {
             }
 
             scanner.nextLine(); // 버퍼지우기
-            calculatePrinter(operator, firstValue, secondValue);
-        }
-    }
-
-    private static void calculatePrinter(String operator, int firstValue, int secondValue) {
-        switch (operator) {
-            case "+":
-                System.out.println(firstValue + " + " + secondValue + " = " + (firstValue + secondValue));
-                System.out.println();
-                break;
-            case "-":
-                System.out.println(firstValue + " - " + secondValue + " = " + (firstValue - secondValue));
-                System.out.println();
-                break;
-            case "*":
-                System.out.println(firstValue + " * " + secondValue + " = " + (firstValue * secondValue));
-                System.out.println();
-                break;
-            case "/":
-                System.out.println(firstValue + " / " + secondValue + " = " + firstValue / secondValue);
-                System.out.println();
+            switch (operator) {
+                case "+":
+                    System.out.println(firstValue + " + " + secondValue + " = " + (firstValue + secondValue));
+                    System.out.println();
+                    break;
+                case "-":
+                    System.out.println(firstValue + " - " + secondValue + " = " + (firstValue - secondValue));
+                    System.out.println();
+                    break;
+                case "*":
+                    System.out.println(firstValue + " * " + secondValue + " = " + (firstValue * secondValue));
+                    System.out.println();
+                    break;
+                case "/":
+                    System.out.println(firstValue + " / " + secondValue + " = " + firstValue / secondValue);
+                    System.out.println();
+            }
         }
     }
 }

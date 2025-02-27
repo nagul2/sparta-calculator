@@ -3,7 +3,7 @@ package v3;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClazzCalculator {
+public class ArithmeticCalculator {
 
     private List<Integer> resultHistoryList = new ArrayList<>();
 

@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        ClazzCalculator calculator = new ClazzCalculator();
+        ArithmeticCalculator calculator = new ArithmeticCalculator();
 
         while (true) {
             Scanner scanner = new Scanner(System.in);
@@ -90,7 +90,7 @@ public class App {
         System.out.println();
     }
 
-    private static void historyCountHandler(ClazzCalculator calculator) {
+    private static void historyCountHandler(ArithmeticCalculator calculator) {
         if (calculator.getSize() >= 10) {
             int removeValue = calculator.remove();
             System.out.println("계산 결과를 더이상 보관할 수 없어 가장 오래된 계산 결과가 삭제 되었습니다.");

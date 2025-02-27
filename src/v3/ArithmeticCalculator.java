@@ -94,7 +94,7 @@ public class ArithmeticCalculator <T extends Number> {
     }
 
     public void historyCountHandler() {
-        if (getSize() >= 10) {
+        if (getSize() > 10) {
             T removeValue = remove();
             System.out.println("계산 결과를 더이상 보관할 수 없어 가장 오래된 계산 결과가 삭제 되었습니다.");
             System.out.println("삭제된 계산 결과: " + removeValue);

@@ -2,7 +2,8 @@ package v3;
 
 public enum OtherCommand {
     EXIT("exit"),
-    HISTORY("his")
+    HISTORY("his"),
+    BIG_HISTORY("bighis")
     ;
 
     String command;

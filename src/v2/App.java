@@ -34,7 +34,7 @@ public class App {
             calculator.add(result); // 계산 결과를 저장
 
             resultPrinter(operator, result, firstValue, secondValue);   // 계산 결과를 출력
-            historyCountHandler(calculator);
+            historyCountHandler(calculator);    // 계산 이력이 10개 이상되면 1개를 삭제하고 계산 이력의 개수를 출력
         }
     }
 

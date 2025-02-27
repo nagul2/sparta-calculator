@@ -5,9 +5,8 @@ import java.util.Scanner;
 
 public class SeqCalculator {
 
-    static Scanner scanner = new Scanner(System.in);
-
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
         while (true) {
             System.out.println("==== 계산기 시작 ====");
@@ -28,11 +27,11 @@ public class SeqCalculator {
             int secondValue;
             while (true) {
                 try {
-                    System.out.print("첫번째 숫자를 입력해주세요. 양의 정수만 가능합니다: ");
+                    System.out.print("첫번째 숫자를 입력해주세요. 정수만 가능합니다: ");
                     firstValue = scanner.nextInt();
                     break;
                 } catch (InputMismatchException e) {
-                    System.out.println("**** 타입이 맞지 않습니다. 양의 정수만 입력해 주세요.**** \n");
+                    System.out.println("**** 타입이 맞지 않습니다. 정수만 입력해 주세요.**** \n");
                     scanner.nextLine(); // 버퍼지우기
                 }
             }
@@ -49,13 +48,13 @@ public class SeqCalculator {
                         }
                         break;
                     } else {
-                        System.out.print("두번째 숫자를 입력해주세요. 양의 정수만 가능합니다: ");
+                        System.out.print("두번째 숫자를 입력해주세요. 정수만 가능합니다: ");
                         secondValue = scanner.nextInt();
                         break;
                     }
 
                 } catch (InputMismatchException e) {
-                    System.out.println("**** 타입이 맞지 않습니다. 양의 정수만 입력해 주세요.**** \n");
+                    System.out.println("**** 타입이 맞지 않습니다. 정수만 입력해 주세요.**** \n");
                     scanner.nextLine(); // 버퍼지우기
                 }
             }

@@ -6,7 +6,7 @@ public enum OtherCommand {
     BIG_HISTORY("bighis")
     ;
 
-    String command;
+    private final String command;
 
     OtherCommand(String command) {
         this.command = command;

@@ -7,8 +7,8 @@ public enum Operator {
     DIVIDE("/", "÷"),
     ;
 
-    private String input;
-    private String symbol;
+    private final String input;
+    private final String symbol;
 
     Operator(String input, String symbol) {
         this.input = input;

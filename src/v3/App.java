@@ -40,6 +40,7 @@ public class App {
                     boolean checkResult = Pattern.matches(INPUT_VALID_REGEXP, inputValue);  // 정규식과 비교
                     if (!checkResult) {
                         System.out.println("**** 입력값이 올바르지 않습니다. 숫자(소수점포함)만 입력해 주세요.****");
+                        System.out.println();
                         continue;
                     }
                     break;

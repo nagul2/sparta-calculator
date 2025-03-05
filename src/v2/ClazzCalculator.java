@@ -22,6 +22,7 @@ public class ClazzCalculator {
     public void historyPrinter() {
         if (getSize() == 0) {
             System.out.println("계산 결과 이력이 없습니다.");
+            System.out.println();
         }
 
         System.out.println("----- 전체 계산 이력 조회 -----");
@@ -50,4 +51,16 @@ public class ClazzCalculator {
         }
         return result;
     }
+
+    public void historyCountHandler(ClazzCalculator calculator) {
+        if (calculator.getSize() > 10) {
+            int removeValue = calculator.remove();
+            System.out.println("계산 결과를 더이상 보관할 수 없어 가장 오래된 계산 결과가 삭제 되었습니다.");
+            System.out.println("삭제된 계산 결과: " + removeValue);
+            System.out.println();
+        }
+
+        System.out.println("계산 이력 " + calculator.getSize() + "건" );
+    }
+
 }

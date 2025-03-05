@@ -35,7 +35,7 @@ public class App {
             calculator.add(result); // 계산 결과를 저장
 
             resultPrinter(operator, result, firstValue, secondValue);   // 계산 결과를 출력
-            historyCountHandler(calculator);    // 계산 이력이 10개 이상되면 1개를 삭제하고 계산 이력의 개수를 출력
+            calculator.historyCountHandler(calculator);                 // 계산 이력이 10개 초과되면 1개를 삭제하고 계산 이력의 개수를 출력
         }
     }
 
@@ -98,7 +98,7 @@ public class App {
                 }
 
             } catch (InputMismatchException e) {
-                System.out.println("**** 타입이 맞지 않습니다. 정수만 입력해 주세요.****");
+                System.out.println("**** 타입이 맞지 않습니다. 양의 정수(0포함)만 입력해 주세요.****");
                 System.out.println();
                 scanner.nextLine(); // 버퍼지우기
             }
@@ -113,14 +113,4 @@ public class App {
         System.out.println();
     }
 
-    private static void historyCountHandler(ClazzCalculator calculator) {
-        if (calculator.getSize() >= 10) {
-            int removeValue = calculator.remove();
-            System.out.println("계산 결과를 더이상 보관할 수 없어 가장 오래된 계산 결과가 삭제 되었습니다.");
-            System.out.println("삭제된 계산 결과: " + removeValue);
-            System.out.println();
-        }
-
-        System.out.println("계산 이력 " + calculator.getSize() + "건" );
-    }
 }

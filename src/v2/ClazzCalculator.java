@@ -11,11 +11,11 @@ public class ClazzCalculator {
         resultHistoryList.add(result);
     }
 
-    public int remove() {
+    private int remove() {
         return resultHistoryList.remove(0);
     }
 
-    public int getSize() {
+    private int getSize() {
         return resultHistoryList.size();
     }
 

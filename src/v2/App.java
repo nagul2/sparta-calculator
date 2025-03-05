@@ -22,7 +22,8 @@ public class App {
             }
 
             if (!(operator.equals("+") || operator.equals("-") || operator.equals("*") || operator.equals("/"))) {
-                System.out.println("**** 연산 부호를 잘못 입력 하셨습니다. 다시 시작합니다 ****\n");
+                System.out.println("**** 연산 부호를 잘못 입력 하셨습니다. 다시 시작합니다 ****");
+                System.out.println();
                 continue;
             }
 
@@ -42,11 +43,19 @@ public class App {
         int firstValue;
         while (true) {
             try {
-                System.out.print("첫번째 숫자를 입력해주세요. 정수만 가능합니다: ");
+                System.out.print("첫번째 숫자를 입력해주세요. 양의 정수(0포함)만 가능합니다: ");
                 firstValue = scanner.nextInt();
+
+                if (firstValue < 0) {
+                    System.out.println("음수가 입력되었습니다. 양의 정수(0포함)만 입력 가능합니다.");
+                    System.out.println();
+                    scanner.nextLine();
+                    continue;
+                }
+
                 break;
             } catch (InputMismatchException e) {
-                System.out.println("**** 타입이 맞지 않습니다. 정수만 입력해 주세요.**** \n");
+                System.out.println("**** 타입이 맞지 않습니다. 양의 정수(0포함)정수만 입력해 주세요.****");
                 System.out.println();
                 scanner.nextLine(); // 버퍼지우기
             }
@@ -59,25 +68,39 @@ public class App {
         while (true) {
             try {
                 if (operator.equals("/")) {
-                    System.out.print("두번째 숫자를 입력해주세요. 나눗셈 연산은 0을 입력할 수 없습니다: ");
+                    System.out.print("두번째 숫자(양의 정수, 0포함)를 입력해주세요. 나눗셈 연산은 0을 입력할 수 없습니다: ");
                     secondValue = scanner.nextInt();
 
+                    if (secondValue < 0) {
+                        System.out.println("음수가 입력되었습니다. 양의 정수(0포함)만 입력 가능합니다.");
+                        System.out.println();
+                        scanner.nextLine();
+                        continue;
+                    }
+
                     if (secondValue == 0) {
-                        System.out.println("**** 나눗셈 연산에서는 0을 입력할 수 없습니다. 다른 수를 입력해 주세요 ****\n");
+                        System.out.println("**** 나눗셈 연산에서는 0을 입력할 수 없습니다. 다른 수를 입력해 주세요 ****");
                         System.out.println();
                         continue;
                     }
                     break;
                 } else {
-                    System.out.print("두번째 숫자를 입력해주세요. 정수만 가능합니다: ");
+                    System.out.print("두번째 숫자를 입력해주세요. 양의 정수(0포함)만 가능합니다: ");
                     secondValue = scanner.nextInt();
+
+                    if (secondValue < 0) {
+                        System.out.println("음수가 입력되었습니다. 양의 정수(0포함)만 입력 가능합니다.");
+                        System.out.println();
+                        scanner.nextLine();
+                        continue;
+                    }
                     break;
                 }
 
             } catch (InputMismatchException e) {
-                System.out.println("**** 타입이 맞지 않습니다. 정수만 입력해 주세요.**** \n");
+                System.out.println("**** 타입이 맞지 않습니다. 정수만 입력해 주세요.****");
                 System.out.println();
-                scanner.nextLine();
+                scanner.nextLine(); // 버퍼지우기
             }
         }
         return secondValue;

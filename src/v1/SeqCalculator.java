@@ -18,7 +18,7 @@ public class SeqCalculator {
                 break;
             }
 
-            if (!(operator.equals("+") || operator.equals("-") || operator.equals("*") || operator.equals("/"))) {
+            if (!("+".equals(operator) || "-".equals(operator) || "*".equals(operator) || "/".equals(operator))) {
                 System.out.println("**** 연산 부호를 잘못 입력 하셨습니다. 다시 시작합니다 ****");
                 System.out.println();
                 continue;
@@ -87,21 +87,28 @@ public class SeqCalculator {
 
             scanner.nextLine(); // 버퍼지우기
             switch (operator) {
-                case "+":
+                case "+" -> {
+
                     System.out.println(firstValue + " + " + secondValue + " = " + (firstValue + secondValue));
                     System.out.println();
-                    break;
-                case "-":
+                }
+
+                case "-" -> {
+
                     System.out.println(firstValue + " - " + secondValue + " = " + (firstValue - secondValue));
                     System.out.println();
-                    break;
-                case "*":
+                }
+
+                case "*" -> {
+
                     System.out.println(firstValue + " * " + secondValue + " = " + (firstValue * secondValue));
                     System.out.println();
-                    break;
-                case "/":
+                }
+
+                case "/" -> {
                     System.out.println(firstValue + " / " + secondValue + " = " + firstValue / secondValue);
                     System.out.println();
+                }
             }
         }
     }

@@ -80,64 +80,6 @@ public class ArithmeticCalculator <T extends Number> {
         System.out.println("계산 결과: " + printFirstValue + " " + operator.getSymbol() + " " + printSecondValue+ " = " + printResultValue);
         System.out.println();
     }
-/*
-
-    public void intCalculate(Operator operator, Integer firstValue, Integer secondValue) {
-        Integer result = 0;
-
-        switch (operator) {
-            case PLUS:
-                result = firstValue + secondValue;
-                break;
-            case MINUS:
-                result = firstValue - secondValue;
-                break;
-            case MULTIPLY:
-                result = firstValue * secondValue;
-                break;
-            case DIVIDE:
-                result = firstValue / secondValue;
-                break;
-        }
-        System.out.println("***************** 계산 결과 출력 *****************");
-        System.out.println("계산 결과: " + firstValue + " " + operator.getSymbol() + " " + secondValue + " = " + result);
-        System.out.println();
-        add((T) result);
-    }
-
-    public void doubleCalculate(Operator operator, Double firstValue, Double secondValue) {
-        Double result = 0.0;
-
-        switch (operator) {
-            case PLUS:
-                result = firstValue + secondValue;
-                break;
-            case MINUS:
-                result = firstValue - secondValue;
-                break;
-            case MULTIPLY:
-                result = firstValue * secondValue;
-                break;
-            case DIVIDE:
-                result = firstValue / secondValue;
-                break;
-        }
-
-        String printFirstValue = printFormat(firstValue);
-        String printSecondValue = printFormat(secondValue);
-        String printResultValue = printFormat(result);
-
-        System.out.println("***************** 계산 결과 출력 *****************");
-        System.out.println("계산 결과: " + printFirstValue + " " + operator.getSymbol() + " " + printSecondValue+ " = " + printResultValue);
-        System.out.println();
-
-        if (result % 1 == 0) {
-            add((T) Integer.valueOf(result.intValue()));
-        } else {
-            add((T) result);
-        }
-    }
-*/
 
     public void historyCountHandler() {
         if (getSize() > 10) {

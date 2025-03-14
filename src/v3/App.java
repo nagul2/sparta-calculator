@@ -45,11 +45,8 @@ public class App {
                     }
                     break;
                 }
-                if (inputValue.contains(".")) {
-                    calculator.inputThanBigValuePrint(Double.valueOf(inputValue));
-                } else {
-                    calculator.inputThanBigValuePrint(Integer.valueOf(inputValue));
-                }
+                calculator.inputThanBigValuePrint(Double.valueOf(inputValue));
+
                 continue;
             }
 
@@ -65,14 +62,22 @@ public class App {
             validFirstValueStr = validNumber(scanner, INPUT_VALID_REGEXP, validOperator, validFirstValueStr);
             String validSecondValueStr = validNumber(scanner, INPUT_VALID_REGEXP, validOperator, validFirstValueStr);
 
-            Number firstValue = inputTypeConverter(validFirstValueStr);
-            Number secondValue = inputTypeConverter(validSecondValueStr);
+            // 연산
+            double firstValue = Double.parseDouble(validFirstValueStr);
+            double secondValue = Double.parseDouble(validSecondValueStr);
 
-            if (firstValue instanceof Double || secondValue instanceof Double) {
-                calculator.doubleCalculate(validOperator, firstValue.doubleValue(), secondValue.doubleValue());
-            } else {
-                calculator.intCalculate(validOperator, firstValue.intValue(), secondValue.intValue());
-            }
+            Number result = calculator.calculate(validOperator, firstValue, secondValue);
+            calculator.calculateResultPrinter(validOperator, firstValue, secondValue, result);      // 출력
+
+//            Number firstValue = inputTypeConverter(validFirstValueStr);
+//            Number secondValue = inputTypeConverter(validSecondValueStr);
+
+//            if (firstValue instanceof Double || secondValue instanceof Double) {
+//                calculator.doubleCalculate(validOperator, firstValue.doubleValue(), secondValue.doubleValue());
+//            } else {
+//                calculator.intCalculate(validOperator, firstValue.intValue(), secondValue.intValue());
+//            }
+
             calculator.historyCountHandler();    // 계산 이력이 10개 이상되면 1개를 삭제하고 계산 이력의 개수를 출력
         }
     }
@@ -101,13 +106,13 @@ public class App {
         return validNumber;
     }
 
-    private static Number inputTypeConverter(String inputValue) {
-        if (inputValue.contains(".")) {
-            return Double.valueOf(inputValue);
-        } else {
-            return Integer.valueOf(inputValue);
-        }
-    }
+//    private static Number inputTypeConverter(String inputValue) {
+//        if (inputValue.contains(".")) {
+//            return Double.valueOf(inputValue);
+//        } else {
+//            return Integer.valueOf(inputValue);
+//        }
+//    }
 
 }
 

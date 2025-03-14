@@ -36,6 +36,52 @@ public class ArithmeticCalculator <T extends Number> {
         System.out.println();
     }
 
+    public T calculate(Operator operator, T firstValue, T secondValue) {
+        Double result = 0.0;
+        Double num1 = 0.0;
+        Double num2 = 0.0;
+
+        if (firstValue instanceof Double || secondValue instanceof Double) {
+            num1 = firstValue.doubleValue();
+            num2 = secondValue.doubleValue();
+        }
+
+        switch (operator) {
+            case PLUS:
+                result = num1 + num2;
+                break;
+            case MINUS:
+                result = num1 - num2;
+                break;
+            case MULTIPLY:
+                result = num1 * num2;
+                break;
+            case DIVIDE:
+                result = num1 / num2;
+                break;
+        }
+
+        if (result % 1 == 0) {
+            add((T) Integer.valueOf(result.intValue()));
+        } else {
+            add((T) result);
+        }
+
+        return (T) result;
+    }
+
+    public void calculateResultPrinter(Operator operator, Double firstValue, Double secondValue, T result) {
+
+        String printFirstValue = printFormat(firstValue);
+        String printSecondValue = printFormat(secondValue);
+        String printResultValue = printFormat((Double) result);
+
+        System.out.println("***************** 계산 결과 출력 *****************");
+        System.out.println("계산 결과: " + printFirstValue + " " + operator.getSymbol() + " " + printSecondValue+ " = " + printResultValue);
+        System.out.println();
+    }
+/*
+
     public void intCalculate(Operator operator, Integer firstValue, Integer secondValue) {
         Integer result = 0;
 
@@ -90,8 +136,8 @@ public class ArithmeticCalculator <T extends Number> {
         } else {
             add((T) result);
         }
-
     }
+*/
 
     public void historyCountHandler() {
         if (getSize() > 10) {

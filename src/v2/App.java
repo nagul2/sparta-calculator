@@ -27,8 +27,11 @@ public class App {
                 continue;
             }
 
-            int firstValue = validFirstValue(scanner);                // 첫 번째 값 검증
-            int secondValue = validSecondValue(operator, scanner);    // 두 번째 값 검증
+            System.out.println("== 첫 번째 숫자 ==");
+            int firstValue = validNumber(scanner, operator);
+
+            System.out.println("== 두 번째 숫자 ==");
+            int secondValue = validNumber(scanner, operator);
 
             scanner.nextLine();
             int result = calculator.getCalculateResult(operator, firstValue, secondValue);
@@ -39,6 +42,41 @@ public class App {
         }
     }
 
+    // after - 메서드 하나로 변경
+    private static int validNumber(Scanner scanner, String operator) {
+        int validNumber;
+
+        while (true) {
+            try {
+                System.out.print("계산할 숫자를 입력해주세요. 양의 정수(0포함)만 가능합니다: ");    // 공통으로 사용할 수 있도록 문구 변경
+                validNumber = scanner.nextInt();
+
+                if (validNumber < 0) {
+                    System.out.println("음수가 입력되었습니다. 양의 정수(0포함)만 입력 가능합니다.");
+                    System.out.println();
+                    scanner.nextLine();
+                    continue;
+                }
+
+                if ("/".equals(operator) && validNumber == 0) {
+                    System.out.println("**** 나눗셈 연산에서는 0을 입력할 수 없습니다. 다른 수를 입력해 주세요 ****");
+                    System.out.println();
+                    continue;
+                }
+
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("**** 타입이 맞지 않습니다. 양의 정수(0포함)정수만 입력해 주세요.****");
+                System.out.println();
+                scanner.nextLine(); // 버퍼지우기
+            }
+
+        }
+        return validNumber;
+    }
+
+
+    // before
     private static int validFirstValue(Scanner scanner) {
         int firstValue;
         while (true) {
@@ -63,6 +101,7 @@ public class App {
         return firstValue;
     }
 
+    // before
     private static int validSecondValue(String operator, Scanner scanner) {
         int secondValue;
         while (true) {

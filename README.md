@@ -1,5 +1,9 @@
 # 내일배움 캠프 2주차 계산기 과제
 ---
+## 🧰 Tech Stacks
+<img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=OpenJDK&logoColor=white">
+
+---
 ## 📍1️⃣ LV1 구현
 ### ✅ v1 패키지에 작성: git 전략 컨벤션을 지키고 코드 내역도 유지해보기 위함
   - SeqCalculator 클래스 하나로 두 정수값을 입력받고 +, -, *, / 의 연산결과를 정수로 반환하는 계산기

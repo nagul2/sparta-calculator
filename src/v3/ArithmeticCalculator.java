@@ -38,13 +38,8 @@ public class ArithmeticCalculator <T extends Number> {
 
     public Double calculate(Operator operator, T firstValue, T secondValue) {
         Double result = 0.0;
-        Double num1 = 0.0;
-        Double num2 = 0.0;
-
-        if (firstValue instanceof Double || secondValue instanceof Double) {
-            num1 = firstValue.doubleValue();
-            num2 = secondValue.doubleValue();
-        }
+        Double num1 = firstValue.doubleValue();
+        Double num2 = secondValue.doubleValue();
 
         switch (operator) {
             case PLUS:

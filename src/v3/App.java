@@ -11,7 +11,7 @@ public class App {
     static final String INPUT_VALID_REGEXP = "^-?(?:[1-9]\\d*|0)(?:\\.\\d+)?$";
 
     public static void main(String[] args) {
-        ArithmeticCalculator<Number> calculator = new ArithmeticCalculator<>();
+        ArithmeticCalculator<Double> calculator = new ArithmeticCalculator<>();
 
         while (true) {
             Scanner scanner = new Scanner(System.in);
@@ -66,7 +66,7 @@ public class App {
             double firstValue = Double.parseDouble(validFirstValueStr);
             double secondValue = Double.parseDouble(validSecondValueStr);
 
-            Number result = calculator.calculate(validOperator, firstValue, secondValue);
+            Double result = calculator.calculate(validOperator, firstValue, secondValue);
             calculator.calculateResultPrinter(validOperator, firstValue, secondValue, result);      // 출력
 
 //            Number firstValue = inputTypeConverter(validFirstValueStr);

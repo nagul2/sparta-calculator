@@ -36,7 +36,7 @@ public class ArithmeticCalculator <T extends Number> {
         System.out.println();
     }
 
-    public T calculate(Operator operator, T firstValue, T secondValue) {
+    public Double calculate(Operator operator, T firstValue, T secondValue) {
         Double result = 0.0;
         Double num1 = 0.0;
         Double num2 = 0.0;
@@ -67,14 +67,14 @@ public class ArithmeticCalculator <T extends Number> {
             add((T) result);
         }
 
-        return (T) result;
+        return result;
     }
 
-    public void calculateResultPrinter(Operator operator, Double firstValue, Double secondValue, T result) {
+    public void calculateResultPrinter(Operator operator, Double firstValue, Double secondValue, Double result) {
 
         String printFirstValue = printFormat(firstValue);
         String printSecondValue = printFormat(secondValue);
-        String printResultValue = printFormat((Double) result);
+        String printResultValue = printFormat(result);
 
         System.out.println("***************** 계산 결과 출력 *****************");
         System.out.println("계산 결과: " + printFirstValue + " " + operator.getSymbol() + " " + printSecondValue+ " = " + printResultValue);

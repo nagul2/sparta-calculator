@@ -26,12 +26,12 @@ public class App {
                 System.out.println();
                 continue;
             }
-
+            Integer firstValue = null;
             System.out.println("== 첫 번째 숫자 ==");
-            int firstValue = validNumber(scanner, operator);
+            firstValue = validNumber(scanner, operator, firstValue);
 
             System.out.println("== 두 번째 숫자 ==");
-            int secondValue = validNumber(scanner, operator);
+            int secondValue = validNumber(scanner, operator, firstValue);
 
             scanner.nextLine();
             int result = calculator.getCalculateResult(operator, firstValue, secondValue);
@@ -43,12 +43,12 @@ public class App {
     }
 
     // after - 메서드 하나로 변경
-    private static int validNumber(Scanner scanner, String operator) {
+    private static int validNumber(Scanner scanner, String operator, Integer firstValue) {
         int validNumber;
 
         while (true) {
             try {
-                System.out.print("계산할 숫자를 입력해주세요. 양의 정수(0포함)만 가능합니다: ");    // 공통으로 사용할 수 있도록 문구 변경
+                System.out.print("계산할 숫자를 입력해주세요. 양의 정수만 가능합니다: ");    // 공통으로 사용할 수 있도록 문구 변경
                 validNumber = scanner.nextInt();
 
                 if (validNumber < 0) {
@@ -58,7 +58,7 @@ public class App {
                     continue;
                 }
 
-                if ("/".equals(operator) && validNumber == 0) {
+                if (firstValue != null && "/".equals(operator) && validNumber == 0) {
                     System.out.println("**** 나눗셈 연산에서는 0을 입력할 수 없습니다. 다른 수를 입력해 주세요 ****");
                     System.out.println();
                     continue;
@@ -74,77 +74,6 @@ public class App {
         }
         return validNumber;
     }
-
-
-    // before
-    private static int validFirstValue(Scanner scanner) {
-        int firstValue;
-        while (true) {
-            try {
-                System.out.print("첫번째 숫자를 입력해주세요. 양의 정수(0포함)만 가능합니다: ");
-                firstValue = scanner.nextInt();
-
-                if (firstValue < 0) {
-                    System.out.println("음수가 입력되었습니다. 양의 정수(0포함)만 입력 가능합니다.");
-                    System.out.println();
-                    scanner.nextLine();
-                    continue;
-                }
-
-                break;
-            } catch (InputMismatchException e) {
-                System.out.println("**** 타입이 맞지 않습니다. 양의 정수(0포함)정수만 입력해 주세요.****");
-                System.out.println();
-                scanner.nextLine(); // 버퍼지우기
-            }
-        }
-        return firstValue;
-    }
-
-    // before
-    private static int validSecondValue(String operator, Scanner scanner) {
-        int secondValue;
-        while (true) {
-            try {
-                if (operator.equals("/")) {
-                    System.out.print("두번째 숫자(양의 정수, 0포함)를 입력해주세요. 나눗셈 연산은 0을 입력할 수 없습니다: ");
-                    secondValue = scanner.nextInt();
-
-                    if (secondValue < 0) {
-                        System.out.println("음수가 입력되었습니다. 양의 정수(0포함)만 입력 가능합니다.");
-                        System.out.println();
-                        scanner.nextLine();
-                        continue;
-                    }
-
-                    if (secondValue == 0) {
-                        System.out.println("**** 나눗셈 연산에서는 0을 입력할 수 없습니다. 다른 수를 입력해 주세요 ****");
-                        System.out.println();
-                        continue;
-                    }
-                    break;
-                } else {
-                    System.out.print("두번째 숫자를 입력해주세요. 양의 정수(0포함)만 가능합니다: ");
-                    secondValue = scanner.nextInt();
-
-                    if (secondValue < 0) {
-                        System.out.println("음수가 입력되었습니다. 양의 정수(0포함)만 입력 가능합니다.");
-                        System.out.println();
-                        scanner.nextLine();
-                        continue;
-                    }
-                    break;
-                }
-
-            } catch (InputMismatchException e) {
-                System.out.println("**** 타입이 맞지 않습니다. 양의 정수(0포함)만 입력해 주세요.****");
-                System.out.println();
-                scanner.nextLine(); // 버퍼지우기
-            }
-        }
-        return secondValue;
-    }
-
 
     private static void resultPrinter(String operator, int result, int firstValue, int secondValue) {
         System.out.println("***************** 계산 결과 출력 *****************");

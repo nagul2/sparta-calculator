@@ -61,8 +61,9 @@ public class App {
             }
 
             // 입력값 검증
-            String validFirstValueStr = validFirstValue(scanner, INPUT_VALID_REGEXP);
-            String validSecondValueStr = validSecondValue(validOperator.getSymbol(), scanner, INPUT_VALID_REGEXP);
+            String validFirstValueStr = null;
+            validFirstValueStr = validNumber(scanner, INPUT_VALID_REGEXP, validOperator, validFirstValueStr);
+            String validSecondValueStr = validNumber(scanner, INPUT_VALID_REGEXP, validOperator, validFirstValueStr);
 
             Number firstValue = inputTypeConverter(validFirstValueStr);
             Number secondValue = inputTypeConverter(validSecondValueStr);
@@ -76,57 +77,28 @@ public class App {
         }
     }
 
-    private static String validFirstValue(Scanner scanner, String regExp) {
-        String firstValue;
+    // after
+    private static String validNumber(Scanner scanner, String regExp, Operator operator, String firstValue) {
+        String validNumber;
+
         while (true) {
             System.out.print("숫자를 입력해 주세요(소수점 입력 가능): ");
-            firstValue = scanner.nextLine();
-            boolean checkResult = Pattern.matches(regExp, firstValue);  // 정규식과 비교
+            validNumber = scanner.nextLine();
+            boolean checkResult = Pattern.matches(regExp, validNumber);  // 정규식과 비교
             if (!checkResult) {
                 System.out.println("**** 입력값이 올바르지 않습니다. 숫자(소수점포함)만 입력해 주세요.****");
                 System.out.println();
                 continue;
             }
+
+            if (firstValue != null && Operator.DIVIDE.equals(operator) && Double.parseDouble(validNumber) == 0.0) {
+                System.out.println("**** 나눗셈 연산에서는 0을 입력할 수 없습니다. 다시 입력해 주세요 ****");
+                System.out.println();
+                continue;
+            }
             break;
         }
-        return firstValue;
-    }
-
-    private static String validSecondValue(String operator, Scanner scanner, String regExp) {
-        String secondValue;
-        while (true) {
-
-            if (operator.equals(Operator.DIVIDE.getSymbol())) {
-                System.out.print("두번째 숫자를 입력해주세요. 나눗셈 연산은 0으로 나눌 수 없습니다.: ");
-
-                secondValue = scanner.nextLine();
-                boolean checkResult = Pattern.matches(regExp, secondValue);  // 정규식과 비교
-                if (!checkResult) {
-                    System.out.println("**** 입력값이 올바르지 않습니다. 숫자(소수점포함)만 입력해 주세요.****");
-                    System.out.println();
-                    continue;
-                }
-                if (Double.parseDouble(secondValue) == 0.0) {
-                    System.out.println("**** 나눗셈 연산에서는 0을 입력할 수 없습니다. 다시 입력해 주세요 ****");
-                    System.out.println();
-                    continue;
-                }
-                break;
-
-            } else {
-                System.out.print("두번째 숫자를 입력해주세요. 숫자만 가능합니다: ");
-                secondValue = scanner.nextLine();
-                boolean checkResult = Pattern.matches(regExp, secondValue);  // 정규식과 비교
-
-                if (!checkResult) {
-                    System.out.println("**** 입력값이 올바르지 않습니다. 숫자(소수점포함)만 입력해 주세요.****");
-                    System.out.println();
-                    continue;
-                }
-                break;
-            }
-        }
-        return secondValue;
+        return validNumber;
     }
 
     private static Number inputTypeConverter(String inputValue) {

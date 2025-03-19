@@ -1,4 +1,4 @@
-# 내일배움 캠프 2주차 계산기 과제
+# 순수 자바로 계산기 만들기
 ---
 ## 🧰 Tech Stacks
 <img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=OpenJDK&logoColor=white">
